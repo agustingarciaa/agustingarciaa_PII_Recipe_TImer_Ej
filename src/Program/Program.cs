@@ -1,12 +1,7 @@
-﻿//-------------------------------------------------------------------------
-// <copyright file="Program.cs" company="Universidad Católica del Uruguay">
-// Copyright (c) Programación II. Derechos reservados.
-// </copyright>
-//-------------------------------------------------------------------------
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace Full_GRASP_And_SOLID
 {
@@ -31,6 +26,11 @@ namespace Full_GRASP_And_SOLID
             printer.PrintRecipe(recipe);
             printer = new FilePrinter();
             printer.PrintRecipe(recipe);
+
+            Console.WriteLine($"Cooked: {recipe.Cooked}");
+            recipe.Cook();
+            Thread.Sleep(500); // 0.5 segundos
+            Console.WriteLine($"Cooked: {recipe.Cooked}");
         }
 
         private static void PopulateCatalogs()
